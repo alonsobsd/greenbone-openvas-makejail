@@ -1,6 +1,6 @@
 # greenbone-openvas-makejail
 
-Greenbone OpenVAS-MakeJail is a [AppJail](https://github.com/DtxdF/AppJail) file ([AppJail-makejail](https://github.com/AppJail-makejails)) used by deploy a testing [Greenbone OpenVAS](https://greenbone.net/en/) All-in-one infrastructure on [FreeBSD](https://freebsd.org/). The principal goals are helps us to fast way install, configure and run Greenbone OpenVAS components. Take on mind this container as is must be used by testing/learning purpose and it is not recommended for production because it has a minimal configuration for run Greenbone Suite.
+Greenbone-OpenVAS-MakeJail is a [AppJail](https://github.com/DtxdF/AppJail) file ([AppJail-makejail](https://github.com/AppJail-makejails)) used by deploy a testing [Greenbone OpenVAS](https://greenbone.net/en/) All-in-one infrastructure on [FreeBSD](https://freebsd.org/). The principal goals are helps us to fast way install, configure and run Greenbone OpenVAS components. Take on mind this container as is must be used by testing/learning purpose and it is not recommended for production because it has a minimal configuration for run Greenbone Suite.
 
 ![image](https://github.com/alonsobsd/greenbone-openvas-makejail/assets/11150989/a7f2b896-e6cd-40b0-a5d4-123a40fd39f6)
 
@@ -33,6 +33,17 @@ rdr-anchor section is necessary for use dynamic redirect from jails
 # sysrc gateway_enable="YES"
 # sysctl net.inet.ip.forwarding=1
 ```
+
+### Add devfs rules
+Some openvas scanner tasks  need access to /dev/bpf device. Add the following lines to /etc/devfs.conf
+```sh
+[devfsrules_jail=10]
+add include $devfsrules_hide_all
+add include $devfsrules_unhide_basic
+add include $devfsrules_unhide_login
+add path 'bpf' unhide mode 0660 group 272 unhide
+```
+
 #### Bootstrap a FreeBSD version
 Before you can begin creating containers, AppJail needs fetch and extract components for create jails. If you are creating FreeBSD jails it must be a version equal or lesser than your host version. In this example we will create a 13.2-RELEASE bootstrap
 
