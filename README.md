@@ -35,7 +35,7 @@ rdr-anchor section is necessary for use dynamic redirect from jails
 ```
 
 ### Add devfs rules
-Some openvas scanner tasks  need access to /dev/bpf device. Add the following lines to /etc/devfs.conf
+Some openvas scanner tasks  need access to /dev/bpf device. Add the following lines to /etc/devfs.rules
 ```sh
 [devfsrules_jail=10]
 add include $devfsrules_hide_all
