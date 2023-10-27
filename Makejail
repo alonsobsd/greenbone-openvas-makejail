@@ -5,7 +5,7 @@ ARG network=greenbone-net
 
 CMD sed -e "s|quarterly|latest|g" -i.bak /etc/pkg/FreeBSD.conf
 
-PKG gvm gvmd-libs gvmd py39-ospd-openvas openvas py39-notus-scanner
+PKG gvm gvm-libs gvmd py39-ospd-openvas openvas py39-notus-scanner
 PKG py39-greenbone-feed-sync gsad gsa redis mosquitto pg-gvm
 PKG postgresql15-server postgresql15-contrib tex-xetex
 
@@ -15,6 +15,9 @@ CMD chown root:gvm /usr/local/etc/openvas/openvas.conf
 COPY files/usr/local/etc/gvm/notus-scanner.toml /usr/local/etc/gvm/notus-scanner.toml
 CMD chmod 640 /usr/local/etc/gvm/notus-scanner.toml
 CMD chown root:gvm /usr/local/etc/gvm/notus-scanner.toml
+COPY files/usr/local/etc/redis.conf /usr/local/etc/redis.conf
+CMD chmod 640 /usr/local/etc/redis.conf
+CMD chown root:redis /usr/local/etc/redis.conf
 
 SYSRC postgresql_enable="YES"
 
@@ -36,6 +39,10 @@ SYSRC redis_user=root
 
 SERVICE mosquitto start
 SERVICE redis start
+
+CMD chmod 750 /var/lib/openvas
+CMD chmod 750 /var/lib/openvas/plugins
+CMD chown -R gvm:gvm /var/lib/openvas
 
 CMD su -m gvm -c "gvm-manage-certs -a"
 CMD su -m gvm -c "greenbone-nvt-sync"

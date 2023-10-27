@@ -5,5 +5,5 @@ OPTION tzdata
 OPTION overwrite
 OPTION virtualnet=${network}:greenbone address:${greenbone_ip} default
 OPTION nat=network:${network}
-OPTION expose=8443:443 network:${network} proto:tcp
+OPTION expose=443:443 network:${network} proto:tcp
 OPTION start
