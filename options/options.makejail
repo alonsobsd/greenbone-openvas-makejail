@@ -1,0 +1,9 @@
+OPTION template=files/template.conf
+OPTION devfs_ruleset=10
+OPTION resolv_conf
+OPTION tzdata
+OPTION overwrite
+OPTION virtualnet=${network}:greenbone address:${greenbone_ip} default
+OPTION nat=network:${network}
+OPTION expose=8443:443 network:${network} proto:tcp
+OPTION start
