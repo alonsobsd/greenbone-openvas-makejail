@@ -2,6 +2,9 @@
 
 Greenbone OpenVAS-MakeJail is a [AppJail](https://github.com/DtxdF/AppJail) file ([AppJail-makejail](https://github.com/AppJail-makejails)) used by deploy a testing [Greenbone OpenVAS](https://greenbone.net/en/) All-in-one infrastructure on [FreeBSD](https://freebsd.org/). The principal goals are helps us to fast way install, configure and run Greenbone OpenVAS components. Take on mind this container as is must be used by testing/learning purpose and it is not recommended for production because it has a minimal configuration for run Greenbone Suite.
 
+![image](https://github.com/alonsobsd/greenbone-openvas-makejail/assets/11150989/a7f2b896-e6cd-40b0-a5d4-123a40fd39f6)
+
+
 ## Requirements
 Before you can install greenbone-openvas using this makejail you need some initial configurations
 
