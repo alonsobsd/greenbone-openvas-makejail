@@ -4,6 +4,8 @@ Greenbone OpenVAS-MakeJail is a [AppJail](https://github.com/DtxdF/AppJail) file
 
 ![image](https://github.com/alonsobsd/greenbone-openvas-makejail/assets/11150989/a7f2b896-e6cd-40b0-a5d4-123a40fd39f6)
 
+![image](https://github.com/alonsobsd/greenbone-openvas-makejail/assets/11150989/e4ee49cf-f82d-458f-ad08-072164b23cd5)
+
 
 ## Requirements
 Before you can install greenbone-openvas using this makejail you need some initial configurations
